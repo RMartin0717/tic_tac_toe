@@ -1,13 +1,22 @@
 class Game {
   constructor(){
-    this.currentTurn;
+    this.currentTurn = "one";
 
   }
-  var playerOne = new Player("one", ❌, []);
-  var playerTwo = new Player("two", ⭕️, []);
+  takeTurn() {
+    //
+    //switch currentTurn for next player
+    if (this.currentTurn === "one") {
+      this.currentTurn = "two";
+    } else {
+      this.currentTurn = "one";
+    }
+  }
 }
 
 
+var playerOne = new Player("one", ❌, []);
+var playerTwo = new Player("two", ⭕️, []);
 
 //Two Player instances
 // A way to keep track of the data for the game board
