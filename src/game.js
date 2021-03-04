@@ -1,22 +1,40 @@
 class Game {
   constructor(){
     this.currentTurn = "one";
-
+    this.topLeft = null;
+    this.topMiddle = null;
+    this.topRight = null;
+    this.centerLeft = null;
+    this.centerMiddle = null;
+    this.centerRight = null;
+    this.bottomLeft = null;
+    this.bottomMiddle = null;
+    this.bottomRight = null;
   }
-  takeTurn() {
-    //
-    //switch currentTurn for next player
+  takeTurn(boxSelected) {
+    if (this[boxSelected] === null) {
+    // console.log("it is the turn of player", this.currentTurn);
+      this[boxSelected] = this.currentTurn;
+    // console.log("this box is selected by player", this.topLeft);
+      this.switchPlayer();
+    // console.log("it is the turn of player", this.currentTurn);
+    } else {
+      return
+    }
+  }
+  switchPlayer() {
     if (this.currentTurn === "one") {
       this.currentTurn = "two";
     } else {
       this.currentTurn = "one";
     }
   }
+
 }
 
-
-var playerOne = new Player("one", ❌, []);
-var playerTwo = new Player("two", ⭕️, []);
+//
+// var playerOne = new Player("one", ❌, []);
+// var playerTwo = new Player("two", ⭕️, []);
 
 //Two Player instances
 // A way to keep track of the data for the game board
