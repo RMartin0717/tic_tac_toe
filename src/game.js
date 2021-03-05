@@ -20,11 +20,8 @@ class Game {
 
   takeTurn(spaceSelected) {
     if (this.gameBoard[spaceSelected] === null) {
-    // console.log("it is the turn of player", this.currentTurn);
       this.gameBoard[spaceSelected] = this.currentTurn;
-    // console.log("this box is selected by player", this.topLeft);
       this.switchPlayer();
-    // console.log("it is the turn of player", this.currentTurn);
     } else {
       return
     }
@@ -37,15 +34,26 @@ class Game {
       this.currentTurn = "one";
     }
   }
+  checkForWin() {
+    evaluateTopRow();
+
+  }
+  evaluateTopRow() {
+    if (
+      this.gameBoard.topLeft === this.currentTurn &&
+      this.gameBoard.topMiddle === this.currentTurn &&
+      this.gameBoard.topRight === this.currentTurn) {
+        return true;
+    }
+  }
+
 
 }
 
 
-//Two Player instances
-// A way to keep track of the data for the game board
-  //an array in which each element has a grid position and can be reassigned value?
-// A way to keep track of which player’s turn it currently is
-  //change turn method that generates opposite boolean
+
+//would be cute to evaluate by row/column/diagonal and include in the win message
+
 // A way to check the Game’s board data for win conditions
 // A way to detect when a game is a draw (no one has won)
 // A way to save a winning Game’s board data to the correct player’s wins array
