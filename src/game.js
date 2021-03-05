@@ -26,6 +26,7 @@ class Game {
       return
     }
   }
+
   switchPlayer() {
     //consider using boolean instead and doing "one" and "two" logic in takeTurn method
     if (this.currentTurn === "one") {
@@ -34,10 +35,27 @@ class Game {
       this.currentTurn = "one";
     }
   }
-  checkForWin() {
-    evaluateTopRow();
 
+  checkForWin() {
+    if (this.evaluateTopRow()) {
+      return true;
+    } else if (this.evaluateCenterRow()) {
+      return true;
+    } else if (this.evaluateBottomRow()) {
+      return true;
+    } else if (this.evaluateLeftColumn()) {
+      return true;
+    } else if (this.evaluateMiddleColumn()) {
+      return true;
+    } else if (this.evaluateRightColumn()) {
+      return true;
+    } else if (this.evaluateTopLeftDiagonal()) {
+      return true;
+    } else if (this.evaluateTopRightDiagonal()) {
+      return true;
+    }
   }
+
   evaluateTopRow() {
     if (
       this.gameBoard.topLeft === this.currentTurn &&
@@ -46,6 +64,70 @@ class Game {
         return true;
     }
   }
+
+  evaluateCenterRow() {
+    if (
+      this.gameBoard.centerLeft === this.currentTurn &&
+      this.gameBoard.centerMiddle === this.currentTurn &&
+      this.gameBoard.centerRight === this.currentTurn) {
+        return true;
+    }
+  }
+
+  evaluateBottomRow() {
+    if (
+      this.gameBoard.bottomLeft === this.currentTurn &&
+      this.gameBoard.bottomMiddle === this.currentTurn &&
+      this.gameBoard.bottomRight === this.currentTurn) {
+        return true;
+    }
+  }
+
+  evaluateLeftColumn() {
+    if (
+      this.gameBoard.topLeft === this.currentTurn &&
+      this.gameBoard.centerLeft === this.currentTurn &&
+      this.gameBoard.bottomLeft === this.currentTurn) {
+        return true;
+    }
+  }
+
+  evaluateMiddleColumn() {
+    if (
+      this.gameBoard.topMiddle === this.currentTurn &&
+      this.gameBoard.centerMiddle === this.currentTurn &&
+      this.gameBoard.bottomMiddle === this.currentTurn) {
+        return true;
+    }
+  }
+
+  evaluateRightColumn() {
+    if (
+      this.gameBoard.topRight === this.currentTurn &&
+      this.gameBoard.centerRight === this.currentTurn &&
+      this.gameBoard.bottomRight === this.currentTurn) {
+        return true;
+    }
+  }
+
+  evaluateTopLeftDiagonal() {
+    if (
+      this.gameBoard.topLeft === this.currentTurn &&
+      this.gameBoard.centerMiddle === this.currentTurn &&
+      this.gameBoard.bottomRight === this.currentTurn) {
+        return true;
+    }
+  }
+
+  evaluateTopRightDiagonal() {
+    if (
+      this.gameBoard.topRight === this.currentTurn &&
+      this.gameBoard.centerMiddle === this.currentTurn &&
+      this.gameBoard.bottomLeft === this.currentTurn) {
+        return true;
+    }
+  }
+
 
 
 }
