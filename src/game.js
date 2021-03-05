@@ -21,6 +21,10 @@ class Game {
   takeTurn(spaceSelected) {
     if (this.gameBoard[spaceSelected] === null) {
       this.gameBoard[spaceSelected] = this.currentTurn;
+      this.checkForWin();
+        // console.log(`player ${this.currentTurn} wins`, this.checkForWin());
+      this.checkForDraw();
+        // console.log("check for draw", this.checkForDraw());
       this.switchPlayer();
     } else {
       return
@@ -53,6 +57,8 @@ class Game {
       return true;
     } else if (this.evaluateTopRightDiagonal()) {
       return true;
+    } else {
+      return false;
     }
   }
 
@@ -128,7 +134,26 @@ class Game {
     }
   }
 
-
+  checkForDraw() {
+    if (
+      this.gameBoard.topLeft != null &&
+      this.gameBoard.topMiddle != null &&
+      this.gameBoard.topRight != null &&
+      this.gameBoard.centerLeft != null &&
+      this.gameBoard.centerMiddle != null &&
+      this.gameBoard.centerRight != null &&
+      this.gameBoard.bottomLeft != null &&
+      this.gameBoard.bottomMiddle != null &&
+      this.gameBoard.bottomRight != null
+      &&
+      this.gameBoard.checkForWin === false
+      )
+    {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 }
 
