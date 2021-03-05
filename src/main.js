@@ -1,24 +1,13 @@
 var newGame = new Game();
 
-
 // query selectors
-var topLeft = document.querySelector("#top-left");
-var topmiddle = document.querySelector("#top-middle");
-var topRight = document.querySelector("#top-right");
-var centerLeft = document.querySelector("#center-left");
-var centerMiddle = document.querySelector("#center-middle");
-var centerRight = document.querySelector("#center-right");
-var bottomLeft = document.querySelector("#bottom-left");
-var bottomMiddle = document.querySelector("#bottom-middle");
-var bottomRight = document.querySelector("#bottom-right");
-
+var allGameSpaces = document.querySelector(".game-board");
 
 // add event listeners
 
-topLeft.addEventListener("click", markSpace("topLeft"));
+allGameSpaces.addEventListener("click", markSpace);
 
-// functions
-function markSpace(position) {
-  newGame.takeTurn(position);
-
+function markSpace(event) {
+  var gameSpace = event.target.id;
+  newGame.takeTurn(gameSpace);
 }

@@ -1,20 +1,27 @@
 class Game {
   constructor(){
+    //player instances can be stored in local storage even when new game is started
+    this.playerOne = new Player("one", "❌", []);
+    this.playerTwo = new Player("two", "⭕️", []);
     this.currentTurn = "one";
-    this.topLeft = null;
-    this.topMiddle = null;
-    this.topRight = null;
-    this.centerLeft = null;
-    this.centerMiddle = null;
-    this.centerRight = null;
-    this.bottomLeft = null;
-    this.bottomMiddle = null;
-    this.bottomRight = null;
+    this.gameBoard =
+    {
+      topLeft: null,
+      topMiddle: null,
+      topRight: null,
+      centerLeft: null,
+      centerMiddle: null,
+      centerRight: null,
+      bottomLeft: null,
+      bottomMiddle: null,
+      bottomRight: null,
+    }
   }
-  takeTurn(boxSelected) {
-    if (this[boxSelected] === null) {
+
+  takeTurn(spaceSelected) {
+    if (this.gameBoard[spaceSelected] === null) {
     // console.log("it is the turn of player", this.currentTurn);
-      this[boxSelected] = this.currentTurn;
+      this.gameBoard[spaceSelected] = this.currentTurn;
     // console.log("this box is selected by player", this.topLeft);
       this.switchPlayer();
     // console.log("it is the turn of player", this.currentTurn);
@@ -23,6 +30,7 @@ class Game {
     }
   }
   switchPlayer() {
+    //consider using boolean instead and doing "one" and "two" logic in takeTurn method
     if (this.currentTurn === "one") {
       this.currentTurn = "two";
     } else {
@@ -32,9 +40,6 @@ class Game {
 
 }
 
-//
-// var playerOne = new Player("one", ❌, []);
-// var playerTwo = new Player("two", ⭕️, []);
 
 //Two Player instances
 // A way to keep track of the data for the game board
