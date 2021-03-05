@@ -23,7 +23,7 @@ class Game {
     if (this.gameBoard[spaceSelected] === null) {
       this.assignToken(spaceSelected);
       this.checkForWin();
-      //create an endGame method that runs if checkForWin is true. inside endGame, should run a method to add player win count to local storage. timeout. reset board
+      this.endGame();
       this.checkForDraw();
       this.switchPlayer();
     } else {
@@ -157,6 +157,26 @@ class Game {
     } else {
       return false;
     }
+  }
+
+  endGame() {
+    if (this.checkForWin()) {
+      this.countWin();
+      this.timeOut();
+      this.resetBoard();
+    }
+  }
+
+  countWin(); {
+    //add win to player.wins count and store in local storage
+  }
+
+  timeOut() {
+    //
+  }
+
+  resetBoard() {
+    //
   }
 
 }
