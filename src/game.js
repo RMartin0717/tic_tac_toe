@@ -18,17 +18,22 @@ class Game {
     }
   }
 
+
   takeTurn(spaceSelected) {
     if (this.gameBoard[spaceSelected] === null) {
-      this.gameBoard[spaceSelected] = this.currentTurn;
+      this.assignToken(spaceSelected);
       this.checkForWin();
-        // console.log(`player ${this.currentTurn} wins`, this.checkForWin());
+          // console.log(`player ${this.currentTurn} wins`, this.checkForWin());
       this.checkForDraw();
-        // console.log("check for draw", this.checkForDraw());
+          // console.log("check for draw", this.checkForDraw());
       this.switchPlayer();
     } else {
       return
     }
+  }
+
+  assignToken(spaceSelected) {
+      this.gameBoard[spaceSelected] = this.currentTurn;
   }
 
   switchPlayer() {
@@ -146,7 +151,7 @@ class Game {
       this.gameBoard.bottomMiddle != null &&
       this.gameBoard.bottomRight != null
       &&
-      this.gameBoard.checkForWin === false
+      this.checkForWin() === false
       )
     {
       return true;
