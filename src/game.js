@@ -23,9 +23,8 @@ class Game {
     if (this.gameBoard[spaceSelected] === null) {
       this.assignToken(spaceSelected);
       this.checkForWin();
-          // console.log(`player ${this.currentTurn} wins`, this.checkForWin());
+      //create an endGame method that runs if checkForWin is true. inside endGame, should run a method to add player win count to local storage. timeout. reset board
       this.checkForDraw();
-          // console.log("check for draw", this.checkForDraw());
       this.switchPlayer();
     } else {
       return
@@ -165,10 +164,3 @@ class Game {
 
 
 //would be cute to evaluate by row/column/diagonal and include in the win message
-
-// A way to check the Game’s board data for win conditions
-// A way to detect when a game is a draw (no one has won)
-// A way to save a winning Game’s board data to the correct player’s wins array
-  //modify so that it counts wins--look at third Player parameter in both files
-// A way to reset the Game’s board to begin a new game
-  //a method that runs on load and is called at end of each game after a timeout
