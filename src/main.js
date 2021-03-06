@@ -11,7 +11,6 @@ allGameSpaces.addEventListener("click", markSpace);
 
 
 function markSpace(event) {
-  //disable buttons here????
     var gameSpace = event.target.id;
     newGame.takeTurn(gameSpace);
   // newGame.render();

@@ -165,7 +165,6 @@ class Game {
       this.countWin();
       this.disableButtons();
       this.timeOut();
-      this.resetBoard();
     }
   }
 
@@ -184,13 +183,13 @@ class Game {
   }
 
   timeOut() {
-    setTimeout(function() {
-        console.log("end game");
-      }, 3000);
+    setTimeout(this.resetBoard(), 3000);
   }
 
   resetBoard() {
     console.log("end game");
+    newGame = new Game();
+    console.log("new game");
     //reset board so that all gameBoard spaces are null and player count is updated from local storage
   }
 
