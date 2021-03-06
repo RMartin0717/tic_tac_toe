@@ -1,8 +1,9 @@
 class Game {
   constructor(){
-    //player instances can be stored in local storage even when new game is started
-    this.playerOne = new Player("one", "❌", []);
-    this.playerTwo = new Player("two", "⭕️", []);
+    this.playerOne = new Player("one", "❌");
+    this.playerTwo = new Player("two", "⭕️");
+    this.playerOne.retrieveWinsFromStorage();
+    this.playerTwo.retrieveWinsFromStorage();
     this.currentTurn = "one";
     this.gameBoard =
     {
@@ -23,7 +24,7 @@ class Game {
     if (this.gameBoard[spaceSelected] === null) {
       this.assignToken(spaceSelected);
       this.checkForWin();
-      //create an endGame method that runs if checkForWin is true. inside endGame, should run a method to add player win count to local storage. timeout. reset board
+      this.endGame();
       this.checkForDraw();
       this.switchPlayer();
     } else {
@@ -157,6 +158,39 @@ class Game {
     } else {
       return false;
     }
+  }
+
+  endGame() {
+    if (this.checkForWin()) {
+      this.countWin();
+      this.disableButtons();
+      this.timeOut();
+    }
+  }
+
+  countWin() {
+    if (this.currentTurn === "one") {
+      this.playerOne.wins++;
+      this.playerOne.saveWinsToStorage();
+    } else if (this.currentTurn === "two"){
+      this.playerTwo.wins++;
+      this.playerTwo.saveWinsToStorage();
+    }
+  }
+
+  disableButtons() {
+    allGameSpaces.removeEventListener("click", markSpace);
+  }
+
+  timeOut() {
+    setTimeout(this.resetBoard(), 3000);
+  }
+
+  resetBoard() {
+    console.log("end game");
+    newGame = new Game();
+    console.log("new game");
+    //reset board so that all gameBoard spaces are null and player count is updated from local storage
   }
 
 }
