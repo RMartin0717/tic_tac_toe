@@ -26,7 +26,7 @@ class Game {
       this.checkForWin();
       this.endGame();
       this.checkForDraw();
-      this.switchPlayer();
+      // this.switchPlayer();
     } else {
       return
     }
