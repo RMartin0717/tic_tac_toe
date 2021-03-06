@@ -1,6 +1,5 @@
 class Game {
   constructor(){
-    //player instances can be stored in local storage even when new game is started
     this.playerOne = new Player("one", "❌");
     this.playerTwo = new Player("two", "⭕️");
     this.playerOne.retrieveWinsFromStorage();
@@ -164,6 +163,7 @@ class Game {
   endGame() {
     if (this.checkForWin()) {
       this.countWin();
+      this.disableButtons();
       this.timeOut();
       this.resetBoard();
     }
@@ -179,12 +179,18 @@ class Game {
     }
   }
 
+  disableButtons() {
+    allGameSpaces.removeEventListener("click", markSpace);
+  }
+
   timeOut() {
-    //disable clicking any new spaces
-    //set timer
+    setTimeout(function() {
+        console.log("end game");
+      }, 3000);
   }
 
   resetBoard() {
+    console.log("end game");
     //reset board so that all gameBoard spaces are null and player count is updated from local storage
   }
 
