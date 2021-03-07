@@ -4,7 +4,9 @@ class Game {
     this.playerTwo = new Player("two", "⭕️");
     this.playerOne.retrieveWinsFromStorage();
     this.playerTwo.retrieveWinsFromStorage();
-    this.currentTurn = "one";
+    this.currentTurn = this.playerOne.token;
+    this.gameOver = false;
+    this.draw = false;
     this.gameBoard =
     {
       topLeft: null,
@@ -24,7 +26,7 @@ class Game {
     if (this.gameBoard[spaceSelected] === null) {
       this.assignToken(spaceSelected);
       this.checkForWin();
-      // this.switchPlayer();
+      return this.currentTurn;
     } else {
       return
     }
@@ -36,10 +38,10 @@ class Game {
 
   switchPlayer() {
     //consider using boolean instead and doing "one" and "two" logic in takeTurn method
-    if (this.currentTurn === "one") {
-      this.currentTurn = "two";
+    if (this.currentTurn === this.playerOne.token) {
+      this.currentTurn = this.playerTwo.token;
     } else {
-      this.currentTurn = "one";
+      this.currentTurn = this.playerOne.token;
     }
   }
 
@@ -62,8 +64,9 @@ class Game {
       this.endGame();
     } else if (this.checkForDraw()) {
       this.endGame();
+      this.draw = true;
     } else {
-      return false;
+      this.switchPlayer();
     }
   }
 
@@ -159,9 +162,11 @@ class Game {
   }
 
   endGame() {
-    this.countWin();
+    if (!this.draw) {
+      this.countWin();
+    }
     this.disableButtons();
-    this.timeOut();
+    this.gameOver = true;
   }
 
   countWin() {
@@ -178,13 +183,10 @@ class Game {
     allGameSpaces.removeEventListener("click", markSpace);
   }
 
-  timeOut() {
-    setTimeout(this.resetBoard(), 3000);
-  }
-
   resetBoard() {
     console.log("end game");
     newGame = new Game();
+    allGameSpaces.addEventListener("click", markSpace);
     console.log("new game");
     //reset board so that all gameBoard spaces are null and player count is updated from local storage
   }

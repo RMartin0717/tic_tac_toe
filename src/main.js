@@ -13,46 +13,39 @@ allGameSpaces.addEventListener("click", markSpace);
 
 function markSpace(event) {
   var gameSpace = event.target.id;
-  var gameSpaceRender = document.querySelector(`#${gameSpace}`);
-  newGame.takeTurn(gameSpace);
-  render(gameSpaceRender);
-  newGame.switchPlayer();
-    //switchPlayer better in game.js???
-}
-
-function render(gameSpaceRender) {
-  updatePlayerTurn();
-  //boardRender(); instead of addToken(); (need to update whole board to match player tokens assigned to each position on newGame.gameboard[position] because the error now is it is just updating the rendered token even though the data model is correct
-  addToken(gameSpaceRender);
-  announceWinner();
-}
-
-// function boardRender() {
-//   topLeft.innerText =
-// }
-
-function updatePlayerTurn() {
-  mainHeading.innerText = `It's ${assignToken()}'s turn!`;
-}
-
-function addToken(gameSpaceRender) {
-  gameSpaceRender.innerText = `${assignToken()}`
-}
-
-function announceWinner() {
-  if (newGame.checkForWin()) {
-    mainHeading.innerText = `Player ${assignToken()} wins!`;
+  var activeToken = newGame.takeTurn(gameSpace);
+  render(activeToken);
+  if (newGame.gameOver === true) {
+    setTimeout((()=>{
+      newGame.resetBoard();
+      boardRender();
+    }), 3000);
   }
-  //announce winner or announce draw
 }
 
-function assignToken() {
-  //need to do this except instead of newGame.currentTurn, use newGame.gameBoard[position]
-  if (newGame.playerOne.id === newGame.currentTurn) {
-    var playerToken = newGame.playerOne.token;
+function render(token) {
+  updateGameHeader(token);
+  boardRender();
+}
+
+function boardRender() {
+  topLeft.innerText = newGame.gameBoard.topLeft;
+  topMiddle.innerText = newGame.gameBoard.topMiddle;
+  topRight.innerText = newGame.gameBoard.topRight;
+  centerLeft.innerText = newGame.gameBoard.centerLeft;
+  centerMiddle.innerText = newGame.gameBoard.centerMiddle;
+  centerRight.innerText = newGame.gameBoard.centerRight;
+  bottomLeft.innerText = newGame.gameBoard.bottomLeft;
+  bottomMiddle.innerText = newGame.gameBoard.bottomMiddle;
+  bottomRight.innerText = newGame.gameBoard.bottomRight;
+}
+
+function updateGameHeader(token) {
+  if (newGame.gameOver && !newGame.draw) {
+    mainHeading.innerText = `Player ${token} wins!`;
+  } else if (newGame.draw) {
+    mainHeading.innerText = `It's a draw!`;
+  } else {
+    mainHeading.innerText = `It's ${token}'s turn!`;
   }
-  if (newGame.playerTwo.id === newGame.currentTurn) {
-    var playerToken = newGame.playerTwo.token;
-  }
-  return playerToken;
 }
