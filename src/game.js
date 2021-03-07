@@ -24,8 +24,6 @@ class Game {
     if (this.gameBoard[spaceSelected] === null) {
       this.assignToken(spaceSelected);
       this.checkForWin();
-      this.endGame();
-      this.checkForDraw();
       // this.switchPlayer();
     } else {
       return
@@ -47,21 +45,23 @@ class Game {
 
   checkForWin() {
     if (this.evaluateTopRow()) {
-      return true;
+      this.endGame();
     } else if (this.evaluateCenterRow()) {
-      return true;
+      this.endGame();
     } else if (this.evaluateBottomRow()) {
-      return true;
+      this.endGame();
     } else if (this.evaluateLeftColumn()) {
-      return true;
+      this.endGame();
     } else if (this.evaluateMiddleColumn()) {
-      return true;
+      this.endGame();
     } else if (this.evaluateRightColumn()) {
-      return true;
+      this.endGame();
     } else if (this.evaluateTopLeftDiagonal()) {
-      return true;
+      this.endGame();
     } else if (this.evaluateTopRightDiagonal()) {
-      return true;
+      this.endGame();
+    } else if (this.checkForDraw()) {
+      this.endGame();
     } else {
       return false;
     }
@@ -150,8 +150,6 @@ class Game {
       this.gameBoard.bottomLeft != null &&
       this.gameBoard.bottomMiddle != null &&
       this.gameBoard.bottomRight != null
-      &&
-      this.checkForWin() === false
       )
     {
       return true;
@@ -161,11 +159,9 @@ class Game {
   }
 
   endGame() {
-    if (this.checkForWin()) {
-      this.countWin();
-      this.disableButtons();
-      this.timeOut();
-    }
+    this.countWin();
+    this.disableButtons();
+    this.timeOut();
   }
 
   countWin() {

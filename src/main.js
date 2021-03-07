@@ -27,6 +27,10 @@ function render(gameSpaceRender) {
   announceWinner();
 }
 
+// function boardRender() {
+//   topLeft.innerText =
+// }
+
 function updatePlayerTurn() {
   mainHeading.innerText = `It's ${assignToken()}'s turn!`;
 }
