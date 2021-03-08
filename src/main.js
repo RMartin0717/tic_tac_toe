@@ -9,7 +9,6 @@ var playerTwoWins = document.querySelector("#playerTwoWins");
 
 /* *****Event Listeners***** */
 allGameSpaces.addEventListener("click", markSpace);
-window.addEventListener("load", updatePlayerWins);
 
 /* *****Functions***** */
 function markSpace(event) {
@@ -19,14 +18,14 @@ function markSpace(event) {
   if (newGame.gameOver === true) {
     setTimeout((()=>{
       newGame.resetBoard();
-      boardRender();
+      render();
     }), 3000);
   }
 }
 
-function render(token) {
+function render() {
   boardRender();
-  updateGameHeader(token);
+  updateGameHeader();
   updatePlayerWins();
 }
 
@@ -42,13 +41,13 @@ function boardRender() {
   bottomRight.innerText = newGame.gameBoard.bottomRight;
 }
 
-function updateGameHeader(token) {
+function updateGameHeader() {
   if (newGame.gameOver && !newGame.draw) {
-    mainHeading.innerText = `Player ${token} wins!`;
+    mainHeading.innerText = `Player ${newGame.currentTurn} wins!`;
   } else if (newGame.draw) {
     mainHeading.innerText = `It's a draw!`;
   } else {
-    mainHeading.innerText = `It's ${token}'s turn!`;
+    mainHeading.innerText = `It's ${newGame.currentTurn}'s turn!`;
   }
 }
 
