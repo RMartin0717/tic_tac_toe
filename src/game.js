@@ -72,6 +72,8 @@ class Game {
 
   evaluateTopRow() {
     if (
+      //try with taking in 3 parameters (each time an evaluate function is called in the checkForWin method) for one reusable function
+      //this.gameBoard.topLeft === this.gameBoard.topMiddle === this.gameBoard.topRight
       this.gameBoard.topLeft === this.currentTurn &&
       this.gameBoard.topMiddle === this.currentTurn &&
       this.gameBoard.topRight === this.currentTurn) {
@@ -170,10 +172,10 @@ class Game {
   }
 
   countWin() {
-    if (this.currentTurn === "one") {
+    if (this.currentTurn === this.playerOne.token) {
       this.playerOne.wins++;
       this.playerOne.saveWinsToStorage();
-    } else if (this.currentTurn === "two"){
+    } else if (this.currentTurn === this.playerTwo.token){
       this.playerTwo.wins++;
       this.playerTwo.saveWinsToStorage();
     }
@@ -184,15 +186,8 @@ class Game {
   }
 
   resetBoard() {
-    console.log("end game");
     newGame = new Game();
     allGameSpaces.addEventListener("click", markSpace);
-    console.log("new game");
-    //reset board so that all gameBoard spaces are null and player count is updated from local storage
   }
 
 }
-
-
-
-//would be cute to evaluate by row/column/diagonal and include in the win message
