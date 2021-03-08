@@ -28,7 +28,7 @@ class Game {
       this.checkForWin();
       return
     } else {
-      return 
+      return
     }
   }
 
@@ -46,36 +46,33 @@ class Game {
   }
 
   checkForWin() {
-    if (this.evaluateForThree("topLeft", "topMiddle", "topRight")) {
-      this.endGame();
-    } else if (this.evaluateForThree("centerLeft", "centerMiddle", "centerRight")) {
-      this.endGame();
-    } else if (this.evaluateForThree("bottomLeft", "bottomMiddle", "bottomRight")) {
-      this.endGame();
-    } else if (this.evaluateForThree("topLeft", "centerLeft", "bottomLeft")) {
-      this.endGame();
-    } else if (this.evaluateForThree("topMiddle", "centerMiddle", "bottomMiddle")) {
-      this.endGame();
-    } else if (this.evaluateForThree("topRight", "centerRight", "bottomRight")) {
-      this.endGame();
-    } else if (this.evaluateForThree("topLeft", "centerMiddle", "bottomRight")) {
-      this.endGame();
-    } else if (this.evaluateForThree("topRight", "centerMiddle", "bottomLeft")) {
+    if (this.evaluateForThree()) {
       this.endGame();
     } else if (this.checkForDraw()) {
       this.endGame();
-      this.draw = true;
     } else {
       this.switchPlayer();
     }
   }
 
-  evaluateForThree(boxOne, boxTwo, boxThree) {
-    if (
-      this.gameBoard[boxOne] === this.currentTurn &&
-      this.gameBoard[boxTwo] === this.currentTurn &&
-      this.gameBoard[boxThree] === this.currentTurn) {
-        return true;
+  evaluateForThree() {
+    var winConditions = [
+      ["topLeft", "topMiddle", "topRight"],
+      ["centerLeft", "centerMiddle", "centerRight"],
+      ["bottomLeft", "bottomMiddle", "bottomRight"],
+      ["topLeft", "centerLeft", "bottomLeft"],
+      ["topMiddle", "centerMiddle", "bottomMiddle"],
+      ["topRight", "centerRight", "bottomRight"],
+      ["topLeft", "centerMiddle", "bottomRight"],
+      ["topRight", "centerMiddle", "bottomLeft"]];
+
+    for (var i = 0; i < winConditions.length; i++) {
+      if (
+        this.gameBoard[winConditions[i][0]] === this.currentTurn &&
+        this.gameBoard[winConditions[i][1]] === this.currentTurn &&
+        this.gameBoard[winConditions[i][2]] === this.currentTurn) {
+          return true;
+      }
     }
   }
 
@@ -92,6 +89,7 @@ class Game {
       this.gameBoard.bottomRight != null
       )
     {
+      this.draw = true;
       return true;
     } else {
       return false;
