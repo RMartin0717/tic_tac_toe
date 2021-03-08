@@ -7,13 +7,18 @@ body {
   display: flex;
   width: 100vw;
   height: 100vh;
+
+  font-family: sans-serif;
+  font-size: 1em;
 }
 
 aside {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20vw;
+  width: 25vw;
+  height: 10vh;
+  margin-top: 10vh;
   border: solid blue 1px;
 
 }
@@ -22,19 +27,60 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60vw;
+  width: 50vw;
+  margin-top: 5vh;
   border: solid red 1px;
 }
 
 
 article {
-  border: solid black 1px;
+  border-right: solid black 5px;
+  border-bottom: solid black 5px;
 }
 
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 30vw;
-  height: 30vw;
+  width: 40vw;
+  height: 40vw;
+  margin-top: 10vh;
 
+}
+
+article:nth-child(3) {
+  border-right: none;
+}
+
+article:nth-child(6) {
+  border-right: none;
+}
+
+article:nth-child(7) {
+  border-bottom: none;
+}
+
+article:nth-child(8) {
+  border-bottom: none;
+}
+
+article:nth-child(9) {
+  border-right: none;
+  border-bottom: none;
+}
+
+@media only screen and (max-width: 650px) {
+  /* with media screens of at most 650px, do this */
+  body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  main {
+    justify-self: center;
+    width: 80%;
+    grid-area: 2/1/2/3;
+  }
 }
