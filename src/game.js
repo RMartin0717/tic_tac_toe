@@ -46,21 +46,21 @@ class Game {
   }
 
   checkForWin() {
-    if (this.evaluateTopRow()) {
+    if (this.evaluateForThree("topLeft", "topMiddle", "topRight")) {
       this.endGame();
-    } else if (this.evaluateCenterRow()) {
+    } else if (this.evaluateForThree("centerLeft", "centerMiddle", "centerRight")) {
       this.endGame();
-    } else if (this.evaluateBottomRow()) {
+    } else if (this.evaluateForThree("bottomLeft", "bottomMiddle", "bottomRight")) {
       this.endGame();
-    } else if (this.evaluateLeftColumn()) {
+    } else if (this.evaluateForThree("topLeft", "centerLeft", "bottomLeft")) {
       this.endGame();
-    } else if (this.evaluateMiddleColumn()) {
+    } else if (this.evaluateForThree("topMiddle", "centerMiddle", "bottomMiddle")) {
       this.endGame();
-    } else if (this.evaluateRightColumn()) {
+    } else if (this.evaluateForThree("topRight", "centerRight", "bottomRight")) {
       this.endGame();
-    } else if (this.evaluateTopLeftDiagonal()) {
+    } else if (this.evaluateForThree("topLeft", "centerMiddle", "bottomRight")) {
       this.endGame();
-    } else if (this.evaluateTopRightDiagonal()) {
+    } else if (this.evaluateForThree("topRight", "centerMiddle", "bottomLeft")) {
       this.endGame();
     } else if (this.checkForDraw()) {
       this.endGame();
@@ -70,76 +70,11 @@ class Game {
     }
   }
 
-  evaluateTopRow() {
+  evaluateForThree(boxOne, boxTwo, boxThree) {
     if (
-      //try with taking in 3 parameters (each time an evaluate function is called in the checkForWin method) for one reusable function
-      //this.gameBoard.topLeft === this.gameBoard.topMiddle === this.gameBoard.topRight
-      this.gameBoard.topLeft === this.currentTurn &&
-      this.gameBoard.topMiddle === this.currentTurn &&
-      this.gameBoard.topRight === this.currentTurn) {
-        return true;
-    }
-  }
-
-  evaluateCenterRow() {
-    if (
-      this.gameBoard.centerLeft === this.currentTurn &&
-      this.gameBoard.centerMiddle === this.currentTurn &&
-      this.gameBoard.centerRight === this.currentTurn) {
-        return true;
-    }
-  }
-
-  evaluateBottomRow() {
-    if (
-      this.gameBoard.bottomLeft === this.currentTurn &&
-      this.gameBoard.bottomMiddle === this.currentTurn &&
-      this.gameBoard.bottomRight === this.currentTurn) {
-        return true;
-    }
-  }
-
-  evaluateLeftColumn() {
-    if (
-      this.gameBoard.topLeft === this.currentTurn &&
-      this.gameBoard.centerLeft === this.currentTurn &&
-      this.gameBoard.bottomLeft === this.currentTurn) {
-        return true;
-    }
-  }
-
-  evaluateMiddleColumn() {
-    if (
-      this.gameBoard.topMiddle === this.currentTurn &&
-      this.gameBoard.centerMiddle === this.currentTurn &&
-      this.gameBoard.bottomMiddle === this.currentTurn) {
-        return true;
-    }
-  }
-
-  evaluateRightColumn() {
-    if (
-      this.gameBoard.topRight === this.currentTurn &&
-      this.gameBoard.centerRight === this.currentTurn &&
-      this.gameBoard.bottomRight === this.currentTurn) {
-        return true;
-    }
-  }
-
-  evaluateTopLeftDiagonal() {
-    if (
-      this.gameBoard.topLeft === this.currentTurn &&
-      this.gameBoard.centerMiddle === this.currentTurn &&
-      this.gameBoard.bottomRight === this.currentTurn) {
-        return true;
-    }
-  }
-
-  evaluateTopRightDiagonal() {
-    if (
-      this.gameBoard.topRight === this.currentTurn &&
-      this.gameBoard.centerMiddle === this.currentTurn &&
-      this.gameBoard.bottomLeft === this.currentTurn) {
+      this.gameBoard[boxOne] === this.currentTurn &&
+      this.gameBoard[boxTwo] === this.currentTurn &&
+      this.gameBoard[boxThree] === this.currentTurn) {
         return true;
     }
   }
