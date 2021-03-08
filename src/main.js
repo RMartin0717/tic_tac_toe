@@ -9,12 +9,13 @@ var playerTwoWins = document.querySelector("#playerTwoWins");
 
 /* *****Event Listeners***** */
 allGameSpaces.addEventListener("click", markSpace);
+window.addEventListener("load", updatePlayerWins);
 
 /* *****Functions***** */
 function markSpace(event) {
   var gameSpace = event.target.id;
-  var activeToken = newGame.takeTurn(gameSpace);
-  render(activeToken);
+  newGame.takeTurn(gameSpace);
+  render();
   if (newGame.gameOver === true) {
     setTimeout((()=>{
       newGame.resetBoard();
