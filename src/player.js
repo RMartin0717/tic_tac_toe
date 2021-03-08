@@ -15,5 +15,6 @@ class Player {
     } else {
       this.wins = 0;
     }
+    return this.wins;
   }
 }

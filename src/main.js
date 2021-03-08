@@ -1,16 +1,17 @@
+/* *****Global Variable***** */
 var newGame = new Game();
 
-// query selectors
+/* *****Query Selectors***** */
 var allGameSpaces = document.querySelector("#gameBoard");
 var mainHeading = document.querySelector("#mainHeading");
+var playerOneWins = document.querySelector("#playerOneWins");
+var playerTwoWins = document.querySelector("#playerTwoWins");
 
-//event listeners
-
+/* *****Event Listeners***** */
 allGameSpaces.addEventListener("click", markSpace);
+window.addEventListener("load", updatePlayerWins);
 
-//on load or new game, display player win count in asides
-
-
+/* *****Functions***** */
 function markSpace(event) {
   var gameSpace = event.target.id;
   var activeToken = newGame.takeTurn(gameSpace);
@@ -24,8 +25,9 @@ function markSpace(event) {
 }
 
 function render(token) {
-  updateGameHeader(token);
   boardRender();
+  updateGameHeader(token);
+  updatePlayerWins();
 }
 
 function boardRender() {
@@ -48,4 +50,9 @@ function updateGameHeader(token) {
   } else {
     mainHeading.innerText = `It's ${token}'s turn!`;
   }
+}
+
+function updatePlayerWins() {
+  playerOneWins.innerText = `${newGame.playerOne.retrieveWinsFromStorage()} Wins`;
+  playerTwoWins.innerText = `${newGame.playerTwo.retrieveWinsFromStorage()} Wins`;
 }
