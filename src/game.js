@@ -28,7 +28,7 @@ class Game {
       this.checkForWin();
       return
     } else {
-      return 
+      return
     }
   }
 
@@ -64,7 +64,6 @@ class Game {
       this.endGame();
     } else if (this.checkForDraw()) {
       this.endGame();
-      this.draw = true;
     } else {
       this.switchPlayer();
     }
@@ -92,6 +91,7 @@ class Game {
       this.gameBoard.bottomRight != null
       )
     {
+      this.draw = true;
       return true;
     } else {
       return false;

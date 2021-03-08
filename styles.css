@@ -32,10 +32,18 @@ main {
   border: solid red 1px;
 }
 
+section {
+  font-size: 3rem;
+}
 
 article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-right: solid black 5px;
   border-bottom: solid black 5px;
+
+  /* font-size: 3rem; */
 }
 
 .game-board {
@@ -68,7 +76,7 @@ article:nth-child(9) {
   border-bottom: none;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 700px) {
   /* with media screens of at most 650px, do this */
   body {
     display: grid;
@@ -80,7 +88,16 @@ article:nth-child(9) {
 
   main {
     justify-self: center;
-    width: 80%;
+    width: 90%;
     grid-area: 2/1/2/3;
+  }
+
+  aside {
+    justify-self: center;
+  }
+
+  .game-board {
+    width: 70vw;
+    height: 70vw;
   }
 }
