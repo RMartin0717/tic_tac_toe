@@ -26,9 +26,9 @@ class Game {
     if (this.gameBoard[spaceSelected] === null) {
       this.assignToken(spaceSelected);
       this.checkForWin();
-      return this.currentTurn;
-    } else {
       return
+    } else {
+      return 
     }
   }
 
