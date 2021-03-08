@@ -28,7 +28,7 @@ class Game {
       this.checkForWin();
       return this.currentTurn;
     } else {
-      return
+      return this.currentTurn;
     }
   }
 
