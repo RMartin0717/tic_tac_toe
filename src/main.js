@@ -20,7 +20,7 @@ function markSpace(event) {
     setTimeout((()=>{
       newGame.resetBoard();
       render();
-    }), 3000);
+    }), 2500);
   }
 }
 
