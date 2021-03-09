@@ -14,6 +14,15 @@ body {
   font-size: 1.5em;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
 aside {
   display: flex;
   flex-direction: column;
@@ -25,15 +34,6 @@ aside {
   margin: 5vh;
 
   border: solid #66C275 2px;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50vw;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
 }
 
 section {
@@ -59,7 +59,6 @@ article {
   width: 45vw;
   height: 45vw;
   margin-top: 10vh;
-
 }
 
 article:nth-child(3) {
@@ -81,6 +80,10 @@ article:nth-child(8) {
 article:nth-child(9) {
   border-right: none;
   border-bottom: none;
+}
+
+.flashlight {
+  width: 10vw;
 }
 
 @media only screen and (max-width: 700px) {

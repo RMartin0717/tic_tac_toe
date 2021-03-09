@@ -37,7 +37,6 @@ class Game {
   }
 
   switchPlayer() {
-    //consider using boolean instead and doing "one" and "two" logic in takeTurn method
     if (this.currentTurn === this.playerOne.token) {
       this.currentTurn = this.playerTwo.token;
     } else {
