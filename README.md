@@ -42,13 +42,15 @@ Galaxy S5
 
 <img src="./images/README/next-turn.png" width="400">
 
-3. When a player gets 3 tokens in a row, they are announced as the winner and their wins count increases to include their latest victory.
+
+3. When hovering over a space that does not already contain a toke, a flashlight appears.
+
+<img src="./images/README/flashlight-hover.gif" width="400">
+
+4. When a player gets 3 tokens in a row, they are announced as the winner and their wins count increases to include their latest victory.
 
 <img src="./images/README/tic-tac-toe-win.gif" width="400">
 
-4. When hovering over a space that does not already contain a toke, a flashlight appears.
-
-<img src="./images/README/flashlight-hover.gif" width="400">
 
 5. If the entire board fills up and neither player has gotten 3 in a row, then the game is declared a draw and neither win count is impacted.
 
