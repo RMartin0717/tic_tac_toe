@@ -9,6 +9,8 @@ var playerTwoWins = document.querySelector("#playerTwoWins");
 
 /* *****Event Listeners***** */
 allGameSpaces.addEventListener("click", markSpace);
+allGameSpaces.addEventListener("mouseover", displayHoverImage)
+allGameSpaces.addEventListener("mouseout", removeHoverImage)
 window.addEventListener("load", updatePlayerWins);
 
 /* *****Functions***** */
@@ -55,4 +57,15 @@ function updateGameHeader() {
 function updatePlayerWins() {
   playerOneWins.innerText = `${newGame.playerOne.retrieveWinsFromStorage()} Wins`;
   playerTwoWins.innerText = `${newGame.playerTwo.retrieveWinsFromStorage()} Wins`;
+}
+
+function displayHoverImage(event) {
+  if (event.target.innerText === "") {
+    event.target.innerText = "🔦";
+  }
+}
+
+function removeHoverImage(event) {
+  event.target.innerText = "";
+  boardRender();
 }
