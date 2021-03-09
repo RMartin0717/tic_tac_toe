@@ -14,6 +14,7 @@ Are you a camp counselor who needs literally 5 minutes to go pee but don't want 
 * When the game is over, the winner is announced and after a short timer, the board resets and saves the number of wins for each player.
 * Player win counts are stored in local storage and persist when the page is refreshed.
 * It's really cute.
+* While hovering over a grid space, before clicking and if the box does not already have a token in it, a flashlight is displayed.
 * The app employs some features of responsive design so that the game may be enjoyed on a variety of screen sizes.
 
 <img src="./images/README/ipad.png" height="400">
@@ -41,15 +42,21 @@ Galaxy S5
 
 <img src="./images/README/next-turn.png" width="400">
 
-3. When a player gets 3 tokens in a row, they are announced as the winner and their wins count increases to include their latest victory.
+
+3. When hovering over a space that does not already contain a toke, a flashlight appears.
+
+<img src="./images/README/flashlight-hover.gif" width="400">
+
+4. When a player gets 3 tokens in a row, they are announced as the winner and their wins count increases to include their latest victory.
 
 <img src="./images/README/tic-tac-toe-win.gif" width="400">
 
-4. If the entire board fills up and neither player has gotten 3 in a row, then the game is declared a draw and neither win count is impacted.
+
+5. If the entire board fills up and neither player has gotten 3 in a row, then the game is declared a draw and neither win count is impacted.
 
 <img src="./images/README/tic-tac-toe-draw.gif" width="400">
 
-5. After either a winner or a draw is declared, a short timer begins. This is the designated "winner" time and they get to rub it in anyone's face until the board resets. Then it's back to business and a new game begins in which they must fight to maintain their winning streak, lest the underdog rises from the ashes and crushes them.
+6. After either a winner or a draw is declared, a short timer begins. This is the designated "winner" time and they get to rub it in anyone's face until the board resets. Then it's back to business and a new game begins in which they must fight to maintain their winning streak, lest the underdog rises from the ashes and crushes them.
 
 ## Author
 <table>
