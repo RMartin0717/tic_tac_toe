@@ -35,7 +35,7 @@ Galaxy S5
 ## Walkthrough
 1. Starting the game is as easy as making the first move. Player one is ready to place their first token as soon as the page loads.
 
-<img src="../images/README/game-start.png" width="400">
+<img src="./images/README/game-start.png" width="400">
 
 2. After player one goes, the game automatically updates so that player two can take their turn. In case anyone has already forgotten whose turn it is or which token they are using, this information is displayed and updates with each turn.
 
