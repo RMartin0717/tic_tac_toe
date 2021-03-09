@@ -1,7 +1,7 @@
 class Game {
   constructor(){
-    this.playerOne = new Player("one", "❌");
-    this.playerTwo = new Player("two", "⭕️");
+    this.playerOne = new Player("one", "⛺️");
+    this.playerTwo = new Player("two", "🐻");
     this.playerOne.retrieveWinsFromStorage();
     this.playerTwo.retrieveWinsFromStorage();
     this.currentTurn = this.playerOne.token;

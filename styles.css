@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    /* border: solid blue 1px; */
 }
 
 body {
@@ -8,8 +7,11 @@ body {
   width: 100vw;
   height: 100vh;
 
+  background: radial-gradient(#0C5419, #072F0E, #020D04);
+  color: #66C275;
+
   font-family: sans-serif;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 aside {
@@ -17,10 +19,12 @@ aside {
   flex-direction: column;
   align-items: center;
   width: 25vw;
-  height: 10vh;
-  margin-top: 10vh;
-  border: solid blue 1px;
+  min-width: 5em;
+  height: 15vh;
+  min-height: 4em;
+  margin: 10vh;
 
+  border: solid #66C275 2px;
 }
 
 main {
@@ -30,10 +34,10 @@ main {
   width: 50vw;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  border: solid red 1px;
 }
 
 section {
+
   font-size: 3rem;
 }
 
@@ -43,8 +47,8 @@ article {
   align-items: center;
   width: 15vw;
   height: 15vw;
-  border-right: solid black 5px;
-  border-bottom: solid black 5px;
+  border-right: solid #66C275 5px;
+  border-bottom: solid #66C275 5px;
 
   /* font-size: 3rem; */
 }
@@ -86,16 +90,20 @@ article:nth-child(9) {
     grid-template-rows: 1fr 4fr;
     width: 100vw;
     height: 100vh;
+
+    background: radial-gradient(#0C5419, #072F0E, #020D04);
+
   }
 
   main {
     justify-self: center;
-    width: 90%;
+    width: 100%;
     grid-area: 2/1/2/3;
   }
 
   aside {
     justify-self: center;
+    width: 60%;
   }
 
   article {
