@@ -16,9 +16,9 @@ Are you a camp counselor who needs literally 5 minutes to go pee but don't want 
 * It's really cute.
 * The app employs some features of responsive design so that the game may be enjoyed on a variety of screen sizes.
 
-![iPad](.images/README/ipad.png)
-![iPhone 6/7/8 Plus](.images/README/iphone.png)
-![Galaxy S5](.images/README/galaxy-s5.png)
+![iPad](./images/README/ipad.png)
+![iPhone 6/7/8 Plus](./images/README/iphone.png)
+![Galaxy S5](./images/README/galaxy-s5.png)
 
 ### Deployed At
 * https://rmartin0717.github.io/tic_tac_toe/
@@ -32,19 +32,19 @@ Are you a camp counselor who needs literally 5 minutes to go pee but don't want 
 ## Walkthrough
 1. Starting the game is as easy as making the first move. Player one is ready to place their first token as soon as the page loads.
 
-![Game Start](.images/README/game-start.png)
+![Game Start](./images/README/game-start.png)
 
 2. After player one goes, the game automatically updates so that player two can take their turn. In case anyone has already forgotten whose turn it is or which token they are using, this information is displayed and updates with each turn.
 
-![Next Turn](.images/README/next-turn.png)
+![Next Turn](./images/README/next-turn.png)
 
 3. When a player gets 3 tokens in a row, they are announced as the winner and their wins count increases to include their latest victory.
 
-![Declare Winner](.images/README/tic-tac-toe-win.gif)
+![Declare Winner](./images/README/tic-tac-toe-win.gif)
 
 4. If the entire board fills up and neither player has gotten 3 in a row, then the game is declared a draw and neither win count is impacted.
 
-![Declare Draw](.images/README/tic-tac-toe-draw.gif)
+![Declare Draw](./images/README/tic-tac-toe-draw.gif)
 
 5. After either a winner or a draw is declared, a short timer begins. This is the designated "winner" time and they get to rub it in anyone's face until the board resets. Then it's back to business and a new game begins in which they must fight to maintain their winning streak, lest the underdog rises from the ashes and crushes them.
 
