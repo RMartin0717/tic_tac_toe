@@ -18,11 +18,11 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25vw;
+  width: 20vw;
   min-width: 5em;
   height: 15vh;
   min-height: 4em;
-  margin: 10vh;
+  margin: 5vh;
 
   border: solid #66C275 2px;
 }
@@ -50,7 +50,7 @@ article {
   border-right: solid #66C275 5px;
   border-bottom: solid #66C275 5px;
 
-  /* font-size: 3rem; */
+  font-size: 5rem;
 }
 
 .game-board {
@@ -90,9 +90,6 @@ article:nth-child(9) {
     grid-template-rows: 1fr 4fr;
     width: 100vw;
     height: 100vh;
-
-    background: radial-gradient(#0C5419, #072F0E, #020D04);
-
   }
 
   main {
