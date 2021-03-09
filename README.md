@@ -17,8 +17,11 @@ Are you a camp counselor who needs literally 5 minutes to go pee but don't want 
 * The app employs some features of responsive design so that the game may be enjoyed on a variety of screen sizes.
 
 <img src="./images/README/ipad.png" width="400">
+iPad
 <img src="./images/README/iphone.png" width="400">
+iPhone 6/7/8 Plus
 <img src="./images/README/galaxy-s5.png" width="400">
+Galaxy S5
 
 ### Deployed At
 * https://rmartin0717.github.io/tic_tac_toe/
