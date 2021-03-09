@@ -78,15 +78,15 @@ class Game {
 
   checkForDraw() {
     if (
-      this.gameBoard.topLeft != null &&
-      this.gameBoard.topMiddle != null &&
-      this.gameBoard.topRight != null &&
-      this.gameBoard.centerLeft != null &&
-      this.gameBoard.centerMiddle != null &&
-      this.gameBoard.centerRight != null &&
-      this.gameBoard.bottomLeft != null &&
-      this.gameBoard.bottomMiddle != null &&
-      this.gameBoard.bottomRight != null
+      this.gameBoard.topLeft &&
+      this.gameBoard.topMiddle &&
+      this.gameBoard.topRight &&
+      this.gameBoard.centerLeft &&
+      this.gameBoard.centerMiddle &&
+      this.gameBoard.centerRight &&
+      this.gameBoard.bottomLeft &&
+      this.gameBoard.bottomMiddle &&
+      this.gameBoard.bottomRight
       )
     {
       this.draw = true;
