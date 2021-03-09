@@ -4,6 +4,7 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Walkthrough](#walkthrough)
+* [Reflection](#reflection)
 * [Authors](#authors)
 * [Technologies](#technologies)
 
@@ -23,6 +24,11 @@ iPad
 iPhone 6/7/8 Plus
 <img src="./images/README/galaxy-s5.png" height="400">
 Galaxy S5
+
+### Code Architecture
+* The main.js file contains one global variable for the game Class, query selectors, event listenders, and all of the app rendering functionality. App rendering is executed by accessing the data model in the constructor for Game.
+* The game.js file contains the data model for the game and all of the methods impacting the data model.
+* The player.js file contains methods pertaining to saving and retrieving player win data.
 
 ### Deployed At
 * https://rmartin0717.github.io/tic_tac_toe/
@@ -57,6 +63,11 @@ Galaxy S5
 <img src="./images/README/tic-tac-toe-draw.gif" width="400">
 
 6. After either a winner or a draw is declared, a short timer begins. This is the designated "winner" time and they get to rub it in anyone's face until the board resets. Then it's back to business and a new game begins in which they must fight to maintain their winning streak, lest the underdog rises from the ashes and crushes them.
+
+## Reflection
+This project overall was a lot of fun. My biggest win was feeling like everything I've learned over Mod 1 was coming together in terms of my understanding of the content. I was able to organize a plan effectively on the first day and then stick to it so that I was able to take a day off and still not feel rushed finishing. I even had time at the end to add an extra feature.
+
+There wasn't anything that particularly stood out as a challenge to my finishing on time. I did set challenges for myself so that I could become more fluent in my logic-writing and have take advantage of opportunities to learn more about CSS. For example, I wanted to lay out the logic for my checkForWin method and then spend some time refactoring it. I initially wrote out this logic in a very clear, but repetitive way and then refactored it twice--first to create reusable functions and then to implement a for loop. This experience gave me a stronger sense of both the logic used to evaluate the wins and ways to refactor. I also read about and talked with a mentor about media query to implement some responsive design in my project. With time left over, I explored different ways of having an image appear on hover and eventually settled on just using an emoji due to some flickering in the rendering that I was not able to figure out how to fix when I used an image.
 
 ## Author
 <table>
